@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Invoice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Styles */
+        body {
+            background-color: #161616; /* Black background */
+            color: white; /* White text for contrast */
+            font-family: 'Poppins', sans-serif; /* Use Poppins font */
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header Section */
+        header {
+            background-color: #449fdf; /* Blue header background */
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 1.8em;
+            text-align: left;
+            margin-bottom: 40px; /* Space below header */
+        }
+        
+        /* Container for content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            padding: 0 20px;
+        }
+        
+        /* Form Section */
+        form {
+            background-color: #343434;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        /* Label styling */
+        label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: block;
+            padding-left: 20px; /* Added padding to shift text */
+        }
+        
+        /* File input styling */
+        input[type="file"] {
+            padding: 10px;
+            margin: 15px 0;
+            width: 100%;
+            font-size: 1em;
+            background-color: #444;
+            color: rgb(255, 255, 255);
+            border: 2px solid #555;
+            border-radius: 20px;
+        }
+        
+        /* Button styling */
+        button {
+            background-color: #2f85d1; /* Blue button */
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            width: 50%; /* Set width to 50% for centering */
+            margin: 20px auto; /* Center the button */
+            display: block; /* Make the button a block element to center it */
+        }
+        
+        /* Button hover effect */
+        button:hover {
+            background-color: #2068c1; /* Slightly darker blue on hover */
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.5em; /* Smaller header on tablets */
+            }
+            .container {
+                margin-top: 30px;
+            }
+            form {
+                padding: 30px;
+            }
+            label {
+                font-size: 1em; /* Adjust label size for mobile */
+            }
+            input[type="file"], button {
+                font-size: 1em; /* Adjust button and input size */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.2em; /* Further smaller header on small screens */
+            }
+            form {
+                padding: 20px;
+                max-width: 90%; /* Full width form on small screens */
+            }
+            label {
+                font-size: 0.9em; /* Smaller label for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        GIP
+    </header>
+    
+    <div class="container">
+        <h2>Upload Invoice Image</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="imageUpload">Choose an image to upload:</label>
+            <input type="file" name="imageUpload" id="imageUpload" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

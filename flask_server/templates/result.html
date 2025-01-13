@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+          body {
+            background-color:  #161616; /* Black background */
+            color: white; /* White text for contrast */
+            font-family: 'Poppins', sans-serif; /* Use Poppins font */
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .dashboard {
+            background-color: #343434; /* Grey dashboard */
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-size: 2em;
+            background: gray;
+            border-radius: 4px;
+            padding: 10px 4px;
+            text-align: center;
+        }
+        h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #bbb;
+        }
+        .result-key {
+            font-weight: bold;
+        }
+        .back-btn {
+            display: inline-block;
+            background-color: #1E3A8A; /* Blue background */
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .back-btn:hover {
+            background-color: #334D97; /* Slightly darker blue on hover */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Smaller font size for header */
+            }
+            h3 {
+                font-size: 1.3em; /* Smaller subheader for tablets */
+            }
+            li {
+                font-size: 1.1em; /* Smaller list items for tablets */
+            }
+            p {
+                font-size: 1.1em; /* Smaller paragraph text for tablets */
+            }
+            .back-btn {
+                font-size: 1em; /* Adjust button size */
+                padding: 8px 16px; /* Adjust padding for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em; /* Smaller font size for small screens */
+            }
+            h3 {
+                font-size: 1.2em; /* Smaller subheader for small screens */
+            }
+            li {
+                font-size: 1em; /* Smaller list items for small screens */
+            }
+            p {
+                font-size: 1em; /* Smaller paragraph text for small screens */
+            }
+            .back-btn {
+                font-size: 1em; /* Adjust button size */
+                padding: 8px 16px; /* Adjust padding for mobile */
+                width: 100%; /* Make button full width on small screens */
+                text-align: center; /* Center align button */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <h1>GST Results Dashboard</h1>
+
+            <div class="results">
+                <h3>GSTIN Validation Results:</h3>
+                <ul>
+                    {% for result in results['GSTIN_Validation_Result'] %}
+                        <li>{{ result }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h3>GST Calculation Results:</h3>
+                <p><span class="result-key">Total Amount with GST:</span> {{ results['GST_Calculation_Result']['Total_amount_with_gst'] }}</p>
+                <p><span class="result-key">CGST Total:</span> {{ results['GST_Calculation_Result']['cgst'] }}</p>
+                <p><span class="result-key">SGST Total:</span> {{ results['GST_Calculation_Result']['sgst'] }}</p>
+                <p><span class="result-key">IGST Total:</span> {{ results['GST_Calculation_Result']['igst'] }}</p>
+            </div>
+
+            <!-- Back Button -->
+            <a href="/" class="back-btn">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
