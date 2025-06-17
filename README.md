@@ -9,3 +9,7 @@ Technologies Used
   Backend: FastAPI (Python)
 
  AI-Powered Extraction: Gemini API (Google Generative AI)
+
+
+https://github.com/user-attachments/assets/0c85672a-96ff-4ef9-91f3-98a95f53000e
+
